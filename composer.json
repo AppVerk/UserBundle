@@ -26,7 +26,7 @@
     "MIT"
   ],
   "require": {
-    "php": "^7.2",
+    "php": "^7.2||^8.0",
     "app-verk/components": "^2.0",
     "doctrine/doctrine-bundle": "^1.6 || ^2.0",
     "doctrine/orm": "^2.5",
