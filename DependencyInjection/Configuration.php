@@ -12,9 +12,13 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-
-        $rootNode = $treeBuilder->root('app_verk_app_user', 'array')->children();
+        $treeBuilder = new TreeBuilder('app_verk_app_user');
+        
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('app_verk_app_user', 'array');
+        }
 
         $rootNode
             ->scalarNode('default_role')->defaultValue(UserInterface::ROLE_DEFAULT)->end();
