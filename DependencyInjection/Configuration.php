@@ -19,12 +19,18 @@ class Configuration implements ConfigurationInterface
         } else {
             $rootNode = $treeBuilder->root('app_verk_app_user', 'array');
         }
+        
+        $children = $root->children();
 
-        $rootNode
-            ->scalarNode('default_role')->defaultValue(UserInterface::ROLE_DEFAULT)->end();
+        $children
+            ->scalarNode('default_role')
+                ->defaultValue(UserInterface::ROLE_DEFAULT)
+            ->end()
+        ;
 
-        $this->addEntitiesConfig($rootNode);
-        $this->addAclConfig($rootNode);
+        $this->addEntitiesConfig($children);
+        $this->addAclConfig($children);
+        $children->end();
 
         return $treeBuilder;
     }
