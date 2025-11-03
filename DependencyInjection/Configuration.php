@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
             $rootNode = $treeBuilder->root('app_verk_app_user', 'array');
         }
         
-        $children = $root->children();
+        $children = $rootNode->children();
 
         $children
             ->scalarNode('default_role')
