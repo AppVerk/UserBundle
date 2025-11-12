@@ -147,7 +147,7 @@ abstract class User implements UserInterface, RoleableInterface
     /**
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
