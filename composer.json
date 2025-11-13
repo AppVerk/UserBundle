@@ -27,7 +27,7 @@
   ],
   "require": {
     "php": "^7.4||^8.0",
-    "app-verk/components": "dev-master-54",
+    "app-verk/components": "dev-symfony-5.4",
     "doctrine/doctrine-bundle": "^1.6 || ^2.0",
     "doctrine/orm": "^2.5",
     "incenteev/composer-parameter-handler": "^2.1",
@@ -41,7 +41,7 @@
    "repositories": [
         {
           "type": "vcs",
-          "url": "https://github.com/tymo49/Components.git"
+          "url": "https://github.com/AppVerk/Components.git"
         }
     ]
 }
