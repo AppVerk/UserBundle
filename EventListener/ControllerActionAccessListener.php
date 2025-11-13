@@ -6,7 +6,7 @@ use AppVerk\UserBundle\Entity\RoleableInterface;
 use AppVerk\UserBundle\Security\AccessResolverInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -65,7 +65,7 @@ class ControllerActionAccessListener
      * @param FilterControllerEvent $event
      * @return RedirectResponse|void
      */
-    public function onKernelController(FilterControllerEvent $event)
+    public function onKernelController(ControllerEvent $event)
     {
         if (!$this->aclEnabled) {
             return;
@@ -90,7 +90,7 @@ class ControllerActionAccessListener
         return;
     }
 
-    private function buildResponse(FilterControllerEvent $event)
+    private function buildResponse(ControllerEvent $event)
     {
         if (!$this->accessDeniedPath) {
             throw new AccessDeniedHttpException("Access denied", new \Exception());
